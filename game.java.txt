@@ -1,0 +1,28 @@
+package 来啊;
+import java.util.Random;                             //相当于头文件中添加产生随机数的头文件
+import java.util.Scanner;                          //相当于简易输出语句头文件
+public class first{
+    public static int suijishu=new Random().nextInt(100);//产生随机数
+    public static void main(String[]args) {              //函数，相当于C语言中的void main()
+        System.out.println(suijishu);                    //显示随机数便于实验
+        Scanner sc=new Scanner(System.in);               //创建输入语句
+        String a="fail";                                 //创建胜利与失败的开关
+        for(int i=0;;i++) {
+            System.out.println("请猜一个1~100的整数:");           //提示用户输入猜测数
+            int caiceshu=sc.nextInt();                       //输入语句，将输入赋给caiceshu
+            if(suijishu>caiceshu)                            //判断如果猜测数小于随机数
+                System.out.println("太小了!");     //猜测数太小提示语
+            else if(suijishu<caiceshu)                       //判断如果猜测数大于随机数
+                System.out.println("太大了！");    //猜测数太大提示语
+            else if(suijishu==caiceshu)                      //判断如果猜中了
+            {                                                //此if内有多个语句，故用大括号
+                System.out.println("bingo！共猜了：" +i);//猜中提示语，输出猜测次数
+                a="win";                                     //打开胜利开关
+                break;                                       //跳出循环
+            }                                                //此if内有多个语句，故用大括号
+            else                                             //如果输入非数
+                System.out.println("你在逗我吗？");//猜测的不是数字提示语
+        }                                                //for循环结束
+
+    }
+}
